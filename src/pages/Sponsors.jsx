@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 export default function Sponsors() {
   return (
     <div className="w-full min-h-screen">
@@ -20,7 +22,7 @@ export default function Sponsors() {
           </p>
           <p>
             If you’re interested in sponsoring or collaborating with us, please{' '}
-            <a href="/contact" className="text-blue-600 underline">get in touch</a>.
+            <Link to="/contact" className="text-blue-600 underline">get in touch</Link>.
           </p>
         </div>
       </div>
