@@ -1,0 +1,26 @@
+/* src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
+/* Add this at the very bottom */
+@layer utilities {
+  .full-vh {
+    /* fallback */
+    height: 100vh;
+    /* true-viewport hack */
+    height: calc(var(--vh, 1vh) * 100) !important;
+  }
+
+  .contain {
+    contain: layout paint;
+  }
+}
+
