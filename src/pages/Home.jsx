@@ -24,6 +24,12 @@ export default function Home() {
           Transforming Fashion Through Business Excellence.
         </p>
       </div>
+      <div className="sr-only">
+        The Fashion in Commerce Association (FICA) is the University of Melbourne's first and only student club
+        dedicated to bridging the gap between fashion and business. Founded in 2025 and supported by the Faculty of Business and
+        Economics and UMSU, FICA hosts events, networking opportunities, and career development programs that connect
+        students with industry professionals across the fashion, e-commerce, and corporate sectors.
+      </div>
     </div>
   );
 }
