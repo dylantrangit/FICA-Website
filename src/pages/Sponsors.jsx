@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import BOBBY_IMG from '../assets/sponsors/bobby.jpg'; // put your Bobby image here
+import BOBBY_IMG from '../assets/sponsors/bobby.JPG'; // put your Bobby image here
 
 export default function Sponsors() {
   return (
