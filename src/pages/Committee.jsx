@@ -2,8 +2,8 @@
 
 // imports unchanged
 import SS from '../assets/commitee/Saan Shon.jpg';
-import VL from '../assets/commitee/Vivian.JPG';
-import AK from '../assets/commitee/Ain.JPG';
+import VL from '../assets/commitee/vivian.jpg';
+import AK from '../assets/commitee/ain.jpg';
 import AC from '../assets/commitee/annabelle.jpg';
 import JS from '../assets/commitee/Jeffrey.jpg';
 import MA from '../assets/commitee/muhit.jpg';
@@ -11,14 +11,14 @@ import EL from '../assets/commitee/Evan.jpg';
 import OQ from '../assets/commitee/olivia qian.JPG';
 import OK from '../assets/commitee/liv headshot.jpg';
 import NC from '../assets/commitee/Nathans headshot.jpg';
-import JL from '../assets/commitee/Jacquelines headshot.JPEG';
-import FULL from '../assets/commitee/fullcomshot.JPG';
+import JL from '../assets/commitee/jacquelines-headshot.jpg';
+import FULL from '../assets/commitee/fullcomshot.jpg';
 
-import AL from '../assets/commitee/andrew li - partnerships officer.JPG';
+import AL from '../assets/commitee/andrew-li-partnerships-officer.jpg';
 import CT from '../assets/commitee/cindy truong - partnerships officer.jpg';
 import JZ from '../assets/commitee/jessica zhang - marketing officer.jpg';
 import LE from '../assets/commitee/leanne ear - graphics officer.jpg';
-import JC from '../assets/commitee/joy cheng (use this).JPG';
+import JC from '../assets/commitee/joy-cheng.jpg';
 import ML from '../assets/commitee/melissa yu - marketing officer.jpg';
 import PK from '../assets/commitee/pritish kumar - marketing officer.jpg';
 import RZ from '../assets/commitee/ryan zylstra - partnerships officer.jpg';
