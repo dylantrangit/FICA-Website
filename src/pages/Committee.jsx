@@ -1,184 +1,169 @@
+// Committee.jsx (JS-only)
+
+// imports unchanged
 import SS from '../assets/commitee/Saan Shon.jpg';
-import VL from '../assets/commitee/Vivian.JPG';
+import VL from '../assets/commitee/vivian.JPG';
 import AK from '../assets/commitee/Ain.jpg';
-import AC from '../assets/commitee/annabelle.avif';
+import AC from '../assets/commitee/annabelle.jpg';
 import JS from '../assets/commitee/Jeffrey.jpg';
-import MA from '../assets/commitee/muhit.jpeg';
+import MA from '../assets/commitee/muhit.jpg';
 import EL from '../assets/commitee/Evan.JPG';
-import OQ from '../assets/commitee/olivia qian.JPEG';
-import OK from '../assets/commitee/liv headshot.png';
-import NC from '../assets/commitee/Nathans headshot.jpeg';
-import JL from '../assets/commitee/Jacquelines headshot.jpg';
+import OQ from '../assets/commitee/olivia qian.JPG';
+import OK from '../assets/commitee/liv headshot.jpg';
+import NC from '../assets/commitee/Nathans headshot.jpg';
+import JL from '../assets/commitee/Jacquelines headshot.JPEG';
+import FULL from '../assets/commitee/fullcomshot.jpg';
 
+import AL from '../assets/commitee/andrew li - partnerships officer.jpg';
+import CT from '../assets/commitee/cindy truong - partnerships officer.jpg';
+import JZ from '../assets/commitee/jessica zhang - marketing officer.jpg';
+import LE from '../assets/commitee/leanne ear - graphics officer.jpg';
+import JC from '../assets/commitee/joy cheng (use this).jpg';
+import ML from '../assets/commitee/melissa yu - marketing officer.jpg';
+import PK from '../assets/commitee/pritish kumar - marketing officer.jpg';
+import RZ from '../assets/commitee/ryan zylstra - partnerships officer.jpg';
+import SL from '../assets/commitee/sharon lo - events officer.jpg';
+import TL from '../assets/commitee/thea li - graphics officer.jpg';
+import GB from '../assets/commitee/gunvir bedi - events officer.jpg';
+import { objectPosition } from 'three/tsl';
 
+/** Data-driven teams: Exec → HR → Marketing → Graphics → Events → Partnerships */
+const TEAMS = [
+  {
+    key: 'Executive',
+    members: [
+      { name: 'Saan Shon', title: 'President', img: SS, roleLevel: 'Director' },
+      { name: 'Vivian Le', title: 'Vice President', img: VL, roleLevel: 'Director', objectPos: "60% 40%" },
+      { name: 'Ain Kim', title: 'Secretary', img: AK, roleLevel: 'Director', objectPos: "60% 70%" },
+      { name: 'Annabelle Chang', title: 'Treasurer', img: AC, roleLevel: 'Director' },
+    ],
+  },
+  {
+    key: 'Marketing',
+    members: [
+      { name: 'Jeffrey Shen', title: 'Marketing Director', img: JS, roleLevel: 'Director', scale: 1.25, objectPos: '50% 30%' },
+      { name: 'Jessica Zhang', title: 'Marketing Officer', img: JZ, roleLevel: 'Officer', objectPos: '60% 30%' },
+      { name: 'Melissa Yu', title: 'Marketing Officer', img: ML, roleLevel: 'Officer', objectPos: '60% 30%' },
+      { name: 'Pritish Kumar', title: 'Marketing Officer', img: PK, roleLevel: 'Officer', objectPos: '60% 30%' },
+    ],
+  },
+  {
+    key: 'Graphics',
+    members: [
+      { name: 'Muhit Abdullah', title: 'Graphics Co-Director', img: MA, roleLevel: 'Director', objectPos: '60% 30%' },
+      { name: 'Evan Lian', title: 'Graphics Co-Director', img: EL, roleLevel: 'Director', objectPos: '60% 35%' },
+      { name: 'Leanne Ear', title: 'Graphics Officer', img: LE, roleLevel: 'Officer', objectPos: '60% 35%' },
+      { name: 'Thea Li', title: 'Graphics Officer', img: TL, roleLevel: 'Officer', objectPos: '60% 35%' },
+    ],
+  },
+  {
+    key: 'Events',
+    members: [
+      { name: 'Olivia Qian', title: 'Events Director', img: OQ, roleLevel: 'Director', scale: 1.15, objectPos: '50% 35%' },
+      { name: 'Sharon Lo', title: 'Events Officer', img: SL, roleLevel: 'Officer', scale: 1.15, objectPos: '50% 35%' },
+      { name: 'Joy Cheng', title: 'Marketing Officer', img: JC, roleLevel: 'Officer', scale: 2, objectPos: '-14% 50%' },
+      { name: 'Gunvir Bedi', title: 'Events Officer', img: GB, roleLevel: 'Officer', scale: 1, objectPos: '50% 35%' },
+    ],
+  },
+  {
+    key: 'Partnerships',
+    members: [
+      { name: 'Olivia Kitchen', title: 'Partnerships Director', img: OK, roleLevel: 'Director', scale: 1.25, objectPos: '60% 40%' },
+      { name: 'Andrew Li', title: 'Partnerships Officer', img: AL, roleLevel: 'Officer', scale: 1.25, objectPos: '60% 40%' },
+      { name: 'Cindy Truong', title: 'Partnerships Officer', img: CT, roleLevel: 'Officer', scale: 1.25, objectPos: '60% 40%' },
+      { name: 'Ryan Zylstra', title: 'Partnerships Officer', img: RZ, roleLevel: 'Officer', scale: 1.25, objectPos: '60% 40%' },
+    ],
+  },
+  {
+    key: 'HR',
+    members: [
+      { name: 'Nathan Cheung', title: 'HR Co-Director', img: NC, roleLevel: 'Director', scale: 1.25, objectPos: '60% 40%' },
+      { name: 'Jacqueline Le', title: 'HR Co-Director', img: JL, roleLevel: 'Director', scale: 1.25, objectPos: '60% 40%' },
+    ],
+  },
+];
 
+function MemberCard({ m }) {
+  const scale = m.scale ?? 1;
+  const objectPos = m.objectPos ?? '50% 50%';
+
+  return (
+    <div className="flex flex-col items-center basis-1/3 md:basis-1/4 xl:basis-1/5">
+      <div className="w-28 h-28 md:w-32 md:h-32 xl:w-40 xl:h-40 rounded-full overflow-hidden mb-4">
+        <img
+          src={m.img}
+          alt={m.name}
+          className="w-full h-full object-cover"
+          style={{ transform: `scale(${scale})`, objectPosition: objectPos }}
+          loading="lazy"
+        />
+      </div>
+      <p className="text-base font-semibold">{m.name}</p>
+      <p className="text-sm text-gray-500">{m.title}</p>
+    </div>
+  );
+}
+
+function TeamBlock({ team }) {
+  const directors = team.members.filter(m => m.roleLevel === 'Director');
+  const officers = team.members.filter(m => m.roleLevel === 'Officer');
+  const ordered = [...directors, ...officers];
+
+  return (
+    <section className="w-full">
+      {/* Flex container instead of fixed grid */}
+      <div className="flex flex-wrap justify-center gap-12 text-center">
+        {ordered.map((m, i) => (
+          <MemberCard key={`${team.key}-${m.name}-${i}`} m={m} />
+        ))}
+      </div>
+
+      {/* Minimal separator */}
+      <div className="my-10 flex justify-center">
+        <div className="h-[2px] w-1/2 bg-blue-200/70 rounded-full" />
+      </div>
+    </section>
+  );
+}
 
 export default function Committee() {
   return (
     <div className="w-full min-h-screen">
-      {/* Black heading section */}
-      <div className="w-full  text-white px-6 py-20 flex justify-center"
-      style={{
-        background: 'linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(15, 15, 15, 1) 10%, rgba(12, 34, 50, 1) 73%, rgba(13, 64, 102, 1) 100%)'
-      }}
+      {/* Heading */}
+      <div
+        className="w-full text-white px-6 py-12 flex justify-center"
+        style={{
+          background:
+            'linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(15, 15, 15, 1) 10%, rgba(12, 34, 50, 1) 73%, rgba(13, 64, 102, 1) 100%)',
+        }}
       >
         <div className="max-w-3xl text-center animate-fade-in">
-          <h2 className="text-4xl font-bold font-poppins">Meet the Committee</h2>
+          <h2 className="text-4xl font-bold font-poppins mt-8">Meet the Committee</h2>
         </div>
       </div>
 
-      {/* White members section with overlap */}
-      <div className="w-full bg-white text-black px-6 py-12 mt-[-56px]">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-12 text-center">
-            {/* President */}
-            <div className="flex flex-col items-center">
-              <img
-                src={SS}
-                alt="Saan Shon"
-                className="w-32 h-32 rounded-full object-cover mb-4"
-                width={96} height={96}
-              />
-              <p className="text-base font-semibold">Saan Shon</p>
-              <p className="text-sm text-gray-500">President</p>
-            </div>
+      {/* Banner */}
+      <div className="w-full">
+        <div className="relative w-full h-[55vh] sm:h-[70vh]">
+          <img
+            src={FULL}
+            alt="FICA full committee"
+            className="absolute inset-0 w-full h-full object-cover"
+            style={{ objectPosition: '50% 61%' }}
+            loading="eager"
+            fetchpriority="high"
+          />
+        </div>
+      </div>
 
-            {/* Vice President */}
-            <div className="flex flex-col items-center">
-              <img
-                src={VL}
-                alt="Vivian Le"
-                className="w-32 h-32 rounded-full object-cover mb-4"
-                width={128}
-                height={128}
-              />
-              <p className="text-base font-semibold">Vivian Le</p>
-              <p className="text-sm text-gray-500">Vice President</p>
-            </div>
-
-            {/* Secretary */}
-            <div className="flex flex-col items-center">
-              <img
-                src={AK}
-                alt="Ain Kim"
-                className="w-32 h-32 rounded-full object-cover mb-4"
-                width={128}
-                height={128}
-              />
-              <p className="text-base font-semibold">Ain Kim</p>
-              <p className="text-sm text-gray-500">Secretary</p>
-            </div>
-
-            {/* Treasurer */}
-            <div className="flex flex-col items-center">
-              <img
-                src={AC}
-                alt="Annabelle Chang"
-                className="w-32 h-32 rounded-full object-cover mb-4"
-                width={128}
-                height={128}
-              />
-              <p className="text-base font-semibold">Annabelle Chang</p>
-              <p className="text-sm text-gray-500">Treasurer</p>
-            </div>
-
-            {/* Marketing */}
-            <div className="flex flex-col items-center">
-              <img
-                src={JS}
-                alt="Jeffrey Shen"
-                className="w-32 h-32 rounded-full object-cover object-[60%_30%] mb-4"
-                width={128}
-                height={128}
-              />              
-              <p className="text-base font-semibold">Jeffery Shen</p>
-              <p className="text-sm text-gray-500">Marketing Director</p>
-            </div>
-
-            {/* Graphics Co-director */}
-            <div className="flex flex-col items-center">
-              <img
-                src={MA}
-                alt="Muhit Abdullah"
-                className="w-32 h-32 rounded-full object-cover object-[60%_65%] mb-4"
-                width={128}
-                height={128}
-              />
-              <p className="text-base font-semibold">Muhit Abdullah</p>
-              <p className="text-sm text-gray-500">Graphics Co-Director</p>
-            </div>
-
-            {/* Graphics Co-director */}
-            <div className="flex flex-col items-center">
-              <img
-                src={EL}
-                alt="Evan Lian"
-                className="w-32 h-32 rounded-full object-cover object-[60%_20%] mb-4"
-                width={128}
-                height={128}
-              />
-              <p className="text-base font-semibold">Evan Lian</p>
-              <p className="text-sm text-gray-500">Graphics Co-Director</p>
-            </div>
-
-            {/* Events */}
-            <div className="flex flex-col items-center">
-              {/* This wrapper defines and clips the circular area */}
-              <div className="w-32 h-32 rounded-full overflow-hidden mb-4">
-                <img
-                  src={OQ}
-                  alt="Olivia Qian"
-                  className="w-full h-full scale-[2] object-cover object-[50%_20%]"
-                />
-              </div>
-              <p className="text-base font-semibold">Olivia Qian</p>
-              <p className="text-sm text-gray-500">Events Director</p>
-            </div>
-
-            {/* Partnerships */}
-            <div className="flex flex-col items-center">
-              <div className="w-32 h-32 rounded-full overflow-hidden mb-4">
-                <img
-                  src={OK}
-                  alt="Olivia Kitchen"
-                  className="w-full h-full scale-125 object-cover object-[60%_40%]"
-                />
-              </div>
-              <p className="text-base font-semibold">Olivia Kitchen</p>
-              <p className="text-sm text-gray-500">Partnerships Director</p>
-            </div>
-
-            {/* HR Co-director */}
-            <div className="flex flex-col items-center">
-              <div className="w-32 h-32 rounded-full overflow-hidden mb-4">
-                <img
-                  src={NC}
-                  alt="Nathan Cheung"
-                  className="w-full h-full scale-125 object-cover object-[60%_40%]"
-                />
-              </div>
-              <p className="text-base font-semibold">Nathan Cheung</p>
-              <p className="text-sm text-gray-500">HR Co-Director</p>
-            </div>
-
-            {/* HR Co-director */}
-            <div className="flex flex-col items-center">
-              <div className="w-32 h-32 rounded-full overflow-hidden mb-4">
-                <img
-                  src={JL}
-                  alt="Jacqueline Le"
-                  className="w-full h-full scale-125 object-cover object-[60%_40%]"
-                />
-              </div>
-              <p className="text-base font-semibold">Jacqueline Le</p>
-              <p className="text-sm text-gray-500">HR Co-Director</p>
-            </div>
-
-          </div>
+      {/* Teams */}
+      <div className="w-full bg-white text-black px-6 py-12">
+        <div className="max-w-6xl mx-auto space-y-2">
+          {TEAMS.map((team, idx) => (
+            <TeamBlock key={`${team.key}-${idx}`} team={team} />
+          ))}
         </div>
       </div>
     </div>
   );
 }
-
-
