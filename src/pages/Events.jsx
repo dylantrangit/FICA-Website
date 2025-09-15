@@ -1,5 +1,5 @@
 // src/pages/Events.jsx
-import BAR_NIGHT_2025 from '../assets/bar night.jpg'; 
+import BAR_NIGHT_2025 from '../assets/bar night.JPG'; 
 import PANEL_EVENT_2025 from '../assets/panel event.jpg'; 
 
 
