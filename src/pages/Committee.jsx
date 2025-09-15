@@ -2,7 +2,7 @@
 
 // imports unchanged
 import SS from '../assets/commitee/Saan Shon.jpg';
-import VL from '../assets/commitee/vivian.jpg';
+import VL from '../assets/commitee/Vivian.JPG';
 import AK from '../assets/commitee/Ain.JPG';
 import AC from '../assets/commitee/annabelle.jpg';
 import JS from '../assets/commitee/Jeffrey.jpg';
