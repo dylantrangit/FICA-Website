@@ -60,7 +60,7 @@ const TEAMS = [
     members: [
       { name: 'Olivia Qian', title: 'Events Director', img: OQ, roleLevel: 'Director', scale: 1.15, objectPos: '50% 35%' },
       { name: 'Sharon Lo', title: 'Events Officer', img: SL, roleLevel: 'Officer', scale: 1.15, objectPos: '50% 35%' },
-      { name: 'Joy Cheng', title: 'Marketing Officer', img: JC, roleLevel: 'Officer', scale: 2, objectPos: '-14% 50%' },
+      { name: 'Joy Cheng', title: 'Events Officer', img: JC, roleLevel: 'Officer', scale: 2, objectPos: '-14% 50%' },
       { name: 'Gunvir Bedi', title: 'Events Officer', img: GB, roleLevel: 'Officer', scale: 1, objectPos: '50% 35%' },
     ],
   },
