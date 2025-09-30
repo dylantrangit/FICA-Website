@@ -70,7 +70,6 @@ const TEAMS = [
       { name: 'Olivia Kitchen', title: 'Partnerships Director', img: OK, roleLevel: 'Director', scale: 1.25, objectPos: '60% 40%' },
       { name: 'Andrew Li', title: 'Partnerships Officer', img: AL, roleLevel: 'Officer', scale: 1.25, objectPos: '60% 40%' },
       { name: 'Cindy Truong', title: 'Partnerships Officer', img: CT, roleLevel: 'Officer', scale: 1.25, objectPos: '60% 40%' },
-      { name: 'Ryan Zylstra', title: 'Partnerships Officer', img: RZ, roleLevel: 'Officer', scale: 1.25, objectPos: '60% 40%' },
     ],
   },
   {
